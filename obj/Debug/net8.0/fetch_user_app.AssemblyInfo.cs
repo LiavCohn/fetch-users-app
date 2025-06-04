@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("fetch_user_app")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1d3a09023a3f556d95cf09b564602e5327f6a948")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+63f8f4430ddc93a692d68ac797f7e67e3bdfce1e")]
 [assembly: System.Reflection.AssemblyProductAttribute("fetch_user_app")]
 [assembly: System.Reflection.AssemblyTitleAttribute("fetch_user_app")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

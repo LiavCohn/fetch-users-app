@@ -30,7 +30,7 @@ class Program
         Console.WriteLine($"Writing to {filePath} in {format} format...");
 
         //list of user sources
-        List<IUserSource> userSources = new List<IUserSource>
+        List<UserSourceBase> userSources = new List<UserSourceBase>
         {
             new RandomUserSource(),
             new JsonPlaceholderUserSource(),

@@ -1,14 +1,15 @@
 using System.Text.Json;
 
-public class RandomUserSource : IUserSource
+public class RandomUserSource : UserSourceBase
 {
-    const string url = "https://randomuser.me/api/?results=500";
-    const string sourceId = "RandomUserApi";
+    public override string Url => "https://randomuser.me/api/?results=500";
+    public override string SourceId => "RandomUserApi";
+    
 
-    public async Task<List<User>> GetUsersAsync()
+    public override async Task<List<User>> GetUsersAsync()
     {
         using var client = new HttpClient();
-        var json = await client.GetStringAsync(url);
+        var json = await client.GetStringAsync(Url);
         var doc = JsonDocument.Parse(json);
         var root = doc.RootElement.GetProperty("results");
 
@@ -17,7 +18,7 @@ public class RandomUserSource : IUserSource
             FirstName = e.GetProperty("name").GetProperty("first").GetString(),
             LastName = e.GetProperty("name").GetProperty("last").GetString(),
             Email = e.GetProperty("email").GetString(),
-            SourceId = sourceId
+            SourceId = SourceId
         }).ToList();
     }
 }

@@ -1,12 +1,14 @@
 using System.Text.Json;
 
-public class ReqresUserSource : IUserSource
+public class ReqresUserSource : UserSourceBase
 {
+    public override string Url => "https://reqres.in/api/users";
+    public override string SourceId => "Reqres";
     private const string ApiKey = "reqres-free-v1";
-    private const string baseUrl = "https://reqres.in/api/users";
-    private const string sourceId = "Reqres";
 
-    public async Task<List<User>> GetUsersAsync()
+
+
+    public override async Task<List<User>> GetUsersAsync()
     {
         using var client = new HttpClient();
         client.DefaultRequestHeaders.Add("x-api-key", ApiKey);
@@ -17,7 +19,7 @@ public class ReqresUserSource : IUserSource
 
         //pagination
         do {
-            var currentUrl = $"{baseUrl}?page={page}";
+            var currentUrl = $"{Url}?page={page}";
             var responseJson = await client.GetStringAsync(currentUrl);
             var responseDoc = JsonDocument.Parse(responseJson);
             var responseRoot = responseDoc.RootElement;
@@ -34,7 +36,7 @@ public class ReqresUserSource : IUserSource
                 FirstName = e.GetProperty("first_name").GetString(),
                 LastName = e.GetProperty("last_name").GetString(),
                 Email = e.GetProperty("email").GetString(),
-                SourceId = sourceId
+                SourceId = SourceId
             }));
             page++; 
         } while (page <= totalPages);

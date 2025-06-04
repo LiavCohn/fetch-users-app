@@ -1,14 +1,15 @@
 using System.Text.Json;
 
-public class JsonPlaceholderUserSource : IUserSource
+public class JsonPlaceholderUserSource : UserSourceBase
 {
-    const string url = "https://jsonplaceholder.typicode.com/users";
-    const string sourceId = "JsonPlaceholder";
+    public override string Url => "https://jsonplaceholder.typicode.com/users";
+    public override string SourceId => "JsonPlaceholder";
 
-    public async Task<List<User>> GetUsersAsync()
+
+    public override async Task<List<User>> GetUsersAsync()
     {
         using var client = new HttpClient();
-        var json = await client.GetStringAsync(url);
+        var json = await client.GetStringAsync(Url);
         var doc = JsonDocument.Parse(json);
 
         return doc.RootElement.EnumerateArray().Select(e => 
@@ -22,7 +23,7 @@ public class JsonPlaceholderUserSource : IUserSource
                 FirstName = firstName,
                 LastName = lastName,
                 Email = e.GetProperty("email").GetString(),
-                SourceId = sourceId
+                SourceId = SourceId
             };
         }).ToList();
     }

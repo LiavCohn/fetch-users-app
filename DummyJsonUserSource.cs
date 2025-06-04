@@ -1,14 +1,16 @@
 using System.Text.Json;
 
-public class DummyJsonUserSource : IUserSource
+public class DummyJsonUserSource : UserSourceBase
 {
-    const string url = "https://dummyjson.com/users";
-    const string sourceId = "DummyJson";
+
+    public override string Url => "https://dummyjson.com/users";
+    public override string SourceId => "DummyJson";
+
     
-    public async Task<List<User>> GetUsersAsync()
+    public override async Task<List<User>> GetUsersAsync()
     {
         using var client = new HttpClient();
-        var json = await client.GetStringAsync(url);
+        var json = await client.GetStringAsync(Url);
         var doc = JsonDocument.Parse(json);
         var root = doc.RootElement.GetProperty("users");
 
@@ -17,7 +19,7 @@ public class DummyJsonUserSource : IUserSource
             FirstName = e.GetProperty("firstName").GetString(),
             LastName = e.GetProperty("lastName").GetString(),
             Email = e.GetProperty("email").GetString(),
-            SourceId = sourceId
+            SourceId = SourceId
         }).ToList();
     }
 }

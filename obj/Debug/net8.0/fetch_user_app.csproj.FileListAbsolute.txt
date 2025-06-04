@@ -12,3 +12,4 @@ C:\projects\fetch_user_app\obj\Debug\net8.0\refint\fetch_user_app.dll
 C:\projects\fetch_user_app\obj\Debug\net8.0\fetch_user_app.pdb
 C:\projects\fetch_user_app\obj\Debug\net8.0\fetch_user_app.genruntimeconfig.cache
 C:\projects\fetch_user_app\obj\Debug\net8.0\ref\fetch_user_app.dll
+C:\projects\fetch_user_app\obj\Debug\net8.0\fetch_user_app.sourcelink.json

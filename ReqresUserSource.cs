@@ -24,7 +24,6 @@ public class ReqresUserSource : IUserSource
             
             totalPages = responseRoot.GetProperty("total_pages").GetInt32();
             var data = responseRoot.GetProperty("data");
-            Console.WriteLine($"Fetching page {page}...");
  
             //break early if not data found
             if (data.GetArrayLength() < 1) {

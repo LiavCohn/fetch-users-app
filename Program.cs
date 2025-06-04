@@ -8,14 +8,24 @@ class Program
     {
         Console.WriteLine("Please enter output file path:");
         string filePath = Console.ReadLine();
+        //in case of invalid path -> close the program. 
+        //different option: add a loop until valid
+        //for simplicity i chose to terminate the program
+        if(!Directory.Exists(filePath)) {
+            Console.WriteLine("Directory does not exist. Please create it or enter a valid one.");
+            return;
+        }
 
         Console.WriteLine("Choose a format (csv, json):");
         string format = Console.ReadLine().ToLower();
+
+        //create a write according to user's choice
         IDataWrite dataWriter = format == "csv" ? new CsvDataWriter() : new JsonDataWriter();
 
         //construct the full path
         string fileName = $"users_{DateTime.Now:yyyyMMddHHmmss}.{format}";
         string fullPath = Path.Combine(filePath, fileName);
+
 
         Console.WriteLine($"Writing to {filePath} in {format} format...");
 

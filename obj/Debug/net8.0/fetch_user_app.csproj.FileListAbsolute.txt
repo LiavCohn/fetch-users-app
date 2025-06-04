@@ -1,0 +1,14 @@
+C:\projects\fetch_user_app\bin\Debug\net8.0\fetch_user_app.exe
+C:\projects\fetch_user_app\bin\Debug\net8.0\fetch_user_app.deps.json
+C:\projects\fetch_user_app\bin\Debug\net8.0\fetch_user_app.runtimeconfig.json
+C:\projects\fetch_user_app\bin\Debug\net8.0\fetch_user_app.dll
+C:\projects\fetch_user_app\bin\Debug\net8.0\fetch_user_app.pdb
+C:\projects\fetch_user_app\obj\Debug\net8.0\fetch_user_app.GeneratedMSBuildEditorConfig.editorconfig
+C:\projects\fetch_user_app\obj\Debug\net8.0\fetch_user_app.AssemblyInfoInputs.cache
+C:\projects\fetch_user_app\obj\Debug\net8.0\fetch_user_app.AssemblyInfo.cs
+C:\projects\fetch_user_app\obj\Debug\net8.0\fetch_user_app.csproj.CoreCompileInputs.cache
+C:\projects\fetch_user_app\obj\Debug\net8.0\fetch_user_app.dll
+C:\projects\fetch_user_app\obj\Debug\net8.0\refint\fetch_user_app.dll
+C:\projects\fetch_user_app\obj\Debug\net8.0\fetch_user_app.pdb
+C:\projects\fetch_user_app\obj\Debug\net8.0\fetch_user_app.genruntimeconfig.cache
+C:\projects\fetch_user_app\obj\Debug\net8.0\ref\fetch_user_app.dll

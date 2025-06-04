@@ -40,6 +40,7 @@ class Program
         
         List<User> users = new List<User>();
 
+        //TODO: add try/catch to handle failure of one of the sources
         var tasks = userSources.Select(s => s.GetUsersAsync());
         var results = await Task.WhenAll(tasks);
         users.AddRange(results.SelectMany(r => r));
